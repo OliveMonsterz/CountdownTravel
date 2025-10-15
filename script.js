@@ -6,7 +6,7 @@ const countdown = document.getElementById('countdown');
 const header = document.getElementById('header');
 const loading = document.getElementById('loading');
 const currentYear = new Date().getFullYear();
-const newYearTime = new Date(`January 01 ${currentYear + 1} 00:00:00`);
+const newYearTime = new Date(`November 19 ${currentYear} 00:00:00`);
 
 // Update countdown time
 function updateCountdown() {
