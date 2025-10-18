@@ -271,81 +271,31 @@
 
         <script>
 
-            let countdownInterval;
+                const year = new Date().getFullYear();
+const myDate = new Date('Jan 1, 2025 00:00:00');
+console.log(myDate);
 
-    /* ===== เปิด/ปิด Modal ===== */
-    function openModal() {
-      document.getElementById("dateModal").style.display = "flex";
-    }
+// countdown
+let timer = setInterval(function() {
 
-    function closeModal() {
-  document.getElementById("dateModal").style.display = "none";
-  document.getElementById("errorMsg").textContent = ""; // 🟢 ล้างข้อความเตือน
-}
+  // get today's date
+  const today = new Date().getTime();
 
-    // ปิด Modal เมื่อคลิกพื้นหลัง
-window.addEventListener("click", (e) => {
-  const modal = document.getElementById("dateModal");
-  if (e.target === modal) {
-    modal.style.display = "none";
-    document.getElementById("errorMsg").textContent = ""; // 🟢 ล้างข้อความเตือนด้วย
-  }
-});      
-  
-    /* ===== จัดการการบันทึก ===== */
-    function saveCountdownDate() {
-      const input = document.getElementById("countdownDate").value;
-      const result = document.getElementById("result");
-      const errorMsg = document.getElementById("errorMsg");
-      const alarmSound = document.getElementById("alarmSound");
-      errorMsg.textContent = "";
-      result.classList.remove("blink");
+  // get the difference
+  const diff = myDate - today;
 
-      if (!input) {
-        errorMsg.textContent = "⚠️ กรุณาเลือกวันก่อนกด Save";
-        errorSound.currentTime = 0;
-        errorSound.play(); // 🔊 เล่นเสียงเตือน
-        return;
-      }
-      
-      closeModal();
-      const targetDate = new Date(input).getTime();
-      clearInterval(countdownInterval);
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      countdownInterval = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;  
-
-      // ถ้าครบกำหนด = แสดงกระพริบสีแดงตอนครบกำหนด
-        if (distance <= 0) {
-          clearInterval(countdownInterval);
-          result.innerHTML = "ครบกำหนดแล้ว 🎉";
-          result.classList.add("blink");
-          alarmSound.play();
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        result.innerHTML = `${String(days).padStart(2, '0')} วัน 
-        ${String(hours).padStart(2, '0')} ชั่วโมง 
-        ${String(minutes).padStart(2, '0')} นาที 
-        ${String(seconds).padStart(2, '0')} วินาที 
-        <div class="label">เวลาที่เหลือ</div>`;
-      }, 1000);
-    }
-
-    // ===== เพิ่มเสียงเมื่อ Hover ปุ่ม =====
-    const hoverSound = document.getElementById("hoverSound");
-    document.querySelectorAll("button").forEach(btn => {
-      btn.addEventListener("mouseenter", () => {
-        hoverSound.currentTime = 0; // เล่นตั้งแต่ต้น
-        hoverSound.play();
-      });
-    });
+  // display
+  document.getElementById("days").innerHTML=days
+  document.getElementById("hours").innerHTML=hours
+  document.getElementById("minutes").innerHTML=minutes
+  document.getElementById("seconds").innerHTML=seconds
+}, 1);
              </script>
 
 </body>
