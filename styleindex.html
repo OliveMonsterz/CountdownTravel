@@ -17,33 +17,27 @@
   
   <style>
 
-body {
-        margin: 0;
-        height: 100vh;
-        background: transparent;
-        color: #37352F;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        border: 1px solid #dadce0;
-        text-align: center;
-  
-      }
+  body {
+      margin: 0;
+      height: 100vh;
+      background: transparent;
+      color: #37352F;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      border: 1px solid #dadce0;
+      text-align: center;
+    }
 
       /* Setting btn&สHeading */
     #header {
       display: flex;
       align-items: center;
-      flex-direction: row;
+
       justify-content: center;
       gap: 10px;
       margin-bottom: 1rem;
-      border: 1px solid #dadce0;
-
-
-
-      }
-
+    }
 
     button {
       padding: 10px 20px;
@@ -59,18 +53,18 @@ body {
     button:hover {
       background-color: transparent;
     }
-  /* เอฟเฟกต์เฉพาะปุ่ม 📅 */
-.Setting-btn {
+      /* เอฟเฟกต์เฉพาะปุ่ม Setting */
+    .Setting-btn {
       font-family: sunflower;
       font-size: 36px; 
       font-weight: 600;
       letter-spacing: 0px;
       text-align: center;
       align-self: center; 
-      padding: 0px 0px;
+      padding: 6px 0px;
       margin: 3px;
       cursor:pointer;
-      }
+    }
 
     .Setting-btn:hover {
       transform: scale(1.5); 
@@ -79,11 +73,11 @@ body {
     }
     
      .Heading {
-      /* --- โครงสร้างพื้นฐาน --- */
+      /* โครงสร้างพื้นฐาน */
       margin: 0;
       padding: 0;
       border-radius: 0;
-      /* --- การจัดตำแหน่งใน flexbox --- */
+      /* การจัดตำแหน่งใน flexbox */
       align-self: center;
       order: 0;
       flex-grow: 0;
@@ -105,19 +99,17 @@ body {
 
 .line {
       /* --- โครงสร้างพื้นฐาน --- */
-      margin-top: -50px;
-      /* --- การจัดตำแหน่งใน flexbox --- */
+      margin-top: -55px;
       align-self: center;
       order: 0;
       flex-grow: 0;
       flex-shrink: 0;
-      /* --- ตัวอักษร --- */
       font-family: 'sunflower';
-        font-size: 3em;
-        text-align: center;
-        height: 50px;
-        border: 1px solid #dadce0;
-        color: #333;  
+      font-size: 3em;
+      text-align: center;
+      height: 50px;
+      border: 1px solid #dadce0;
+      color: #333;  
       /* --- การแสดงผล --- */
       overflow: visible;
       z-index: 8;
@@ -171,15 +163,15 @@ body {
       }
 
 
+
+
   
 </style>
   
   </head>
 
 
- <body>    
-    <div> 
-   <body>    
+<body>    
     <div> 
   <!-- === Setting btn&สHeading === -->
     <div id="header">
@@ -206,10 +198,9 @@ body {
           seconds
         </div>
     </div>
-
       
 
-   <!--   <div id="timer">
+    <div id="timer">
       
     <div class="time-box">
       <div class="numbers" id="days">00</div>      
@@ -246,7 +237,7 @@ body {
 
 <!-- ===== Countdown ===== -->
 
-  <!--  <div id="result" class="countdown-container">
+  <div id="result" class="countdown-container">
     <div class="time-box">
       <div class="time" id="days">00</div>      
       <div class="label">days</div>
@@ -264,11 +255,19 @@ body {
       <div class="label">seconds</div>
     </div>
   </div>
-  
+
+  <!-- ===== กล่องแสดงผล Countdown =====
+  <div class="result-box" id="result">
+    00 : 00 : 00 : 00
+    <div class="label">เวลาที่เหลือ</div>
+  </div> -->
+
+ 
+      
   <!-- ===== Modal Popup ===== -->
-  <!--  <div id="dateModal" class="modal">
+  <div id="dateModal" class="modal">
     <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">✖</button>
+      <button class="close-btn" onclick="closePopup()">✖</button>
       <h2>เลือกวัน</h2>
       <input type="date" id="countdownDate">
       <br>
@@ -276,14 +275,6 @@ body {
       <div id="errorMsg" class="error"></div>
     </div>
   </div>
-     
-  <!-- ===== กล่องแสดงผล Countdown =====
-  <div class="result-box" id="result">
-    00 : 00 : 00 : 00
-    <div class="label">เวลาที่เหลือ</div>
-  </div> -->
-
-
 
  <!-- เสียงแจ้งเตือน -->
   <!-- เสียงหลัก (ครบกำหนด) -->
@@ -301,7 +292,85 @@ body {
     <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
   </audio>
 
+<script>
+  let countdownInterval;
 
+/* ===== เปิด/ปิด Modal ===== */
+function openPopup() {
+  document.getElementById("dateModal").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("dateModal").style.display = "none";
+  document.getElementById("errorMsg").textContent = ""; // 🟢 ล้างข้อความเตือน
+}
+
+// ปิด Modal เมื่อคลิกพื้นหลัง
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("dateModal");
+  if (e.target === modal) {
+    modal.style.display = "none";
+    document.getElementById("errorMsg").textContent = ""; // 🟢 ล้างข้อความเตือนด้วย
+  }
+});
+
+/* ===== จัดการการบันทึก ===== */
+    function saveCountdownDate() {
+      const input = document.getElementById("countdownDate").value;
+      const result = document.getElementById("result");
+      const errorMsg = document.getElementById("errorMsg");
+      const alarmSound = document.getElementById("alarmSound");
+      errorMsg.textContent = "";
+      result.classList.remove("blink");
+
+      if (!input) {
+        errorMsg.textContent = "⚠️ กรุณาเลือกวันก่อนกด Save";
+        errorSound.currentTime = 0;
+        errorSound.play(); // 🔊 เล่นเสียงเตือน
+        return;
+      }
+
+      closePopup();
+      const targetDate = new Date(input).getTime();
+      clearInterval(countdownInterval);
+
+      countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+         
+      // แสดงกระพริบสีแดงตอนครบกำหนด
+          clearInterval(countdownInterval);
+          result.innerHTML = "ครบกำหนดแล้ว 🎉";
+          result.classList.add("blink");
+          alarmSound.play();
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        result.innerHTML = `${String(days).padStart(2, '0')} วัน 
+        ${String(hours).padStart(2, '0')} ชั่วโมง 
+        ${String(minutes).padStart(2, '0')} นาที 
+        ${String(seconds).padStart(2, '0')} วินาที 
+        <div class="label">เวลาที่เหลือ</div>`;
+      }, 1000);
+    }
+
+    // ===== เพิ่มเสียงเมื่อ Hover ปุ่ม =====
+    const hoverSound = document.getElementById("hoverSound");
+    document.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0; // เล่นตั้งแต่ต้น
+        hoverSound.play();
+      });
+    });
+  </script>
+      
         <script>
 const days = document.getElementById('days');
 const hours = document.getElementById('hours');
