@@ -410,10 +410,29 @@ window.addEventListener("click", (e) => {
         hoverSound.play();
       });
     });
-
-
-
-          
              </script>
+      <script>
+document.body.addEventListener('click', function enableAudio() {
+  // ปลดล็อกระบบเสียงทุกอัน
+  document.getElementById("hoverSound").play().then(() => {
+    document.getElementById("hoverSound").pause();
+    document.getElementById("hoverSound").currentTime = 0;
+  }).catch(()=>{});
+
+  document.getElementById("alarmSound").play().then(() => {
+    document.getElementById("alarmSound").pause();
+    document.getElementById("alarmSound").currentTime = 0;
+  }).catch(()=>{});
+
+  document.getElementById("errorSound").play().then(() => {
+    document.getElementById("errorSound").pause();
+    document.getElementById("errorSound").currentTime = 0;
+  }).catch(()=>{});
+
+  // เล่นครั้งเดียวพอ ลบ event ทิ้ง
+  document.body.removeEventListener('click', enableAudio);
+});
+</script>
+
 </body>
 </html>
