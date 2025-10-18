@@ -103,7 +103,35 @@
         text-align: center;
         height: 50px;
               border: 1px solid #dadce0;
+        
       }
+      /* ส่วนหัว + ปุ่มอยู่บรรทัดเดียวกัน */
+
+            .h1 {
+      /* --- โครงสร้างพื้นฐาน --- */
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      /* --- การจัดตำแหน่งใน flexbox --- */
+      align-self: center;
+      order: 0;
+      flex-grow: 0;
+      flex-shrink: 0;
+      /* --- ตัวอักษร --- */
+      font-family: 'sunflower';
+      font-size: 36px;
+      font-weight: 500;
+      color: #333;
+      letter-spacing: 0;
+      line-height: 1.5;
+      text-align: center;
+      white-space: pre-wrap;
+      word-break: break-word;
+      /* --- การแสดงผล --- */
+      overflow: visible;
+      z-index: 8;
+      }
+      
   
 </style>
   
@@ -116,7 +144,7 @@
     <div> 
      <!-- ===== ส่วนหัวและปุ่มเลือกวัน ===== -->
   <div id="header">
-    <button class="calendar-btn" onclick="openPopup()">๓</button>
+    <button class="calendar-btn" onclick="openModal()">๓</button>
     <span class="h1">Chaing Mai ๒๖๗๐</span>
     </div>
       <div class="line ">๙๙๙๙๙๙๙</div>
