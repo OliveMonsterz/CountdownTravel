@@ -17,7 +17,7 @@
   
   <style>
 
-      body {
+body {
         margin: 0;
         height: 100vh;
         background: transparent;
@@ -26,6 +26,7 @@
         justify-content: center;
         display: flex;
               border: 1px solid #dadce0;
+          text-align: center;
       }
       #timer {
         display: flex;
@@ -93,30 +94,13 @@
         font-weight: 400; 
         text-align: center;
         height: 10px;
-        cursor:pointer;
               border: 1px solid #dadce0;
       }
   
-      .line {
-        font-family: 'sunflower';
-        font-size: 3em;
-        text-align: center;
-        height: 50px;
-              border: 1px solid #dadce0;
-        
-      }
+     
       /* ส่วนหัว + ปุ่มอยู่บรรทัดเดียวกัน */
     #header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      display: flex;
-      /*flex: initial;*/
-      flex-direction: row;
-      /*display: block;*/
-      text-align: center;
-     /* height: 54px;*/
-    }
+   }
     
             .h1 {
       /* --- โครงสร้างพื้นฐาน --- */
@@ -142,29 +126,78 @@
       overflow: visible;
       z-index: 8;
       }
-      
+     .line {
+      /* --- โครงสร้างพื้นฐาน --- */
+      margin-top: -35px;
+      border-radius: 0;
+      /* --- การจัดตำแหน่งใน flexbox --- */
+      align-self: center;
+      order: 0;
+      flex-grow: 0;
+      flex-shrink: 0;
+      /* --- ตัวอักษร --- */
+      font-family: 'sunflower';
+        font-size: 3em;
+        text-align: center;
+        height: 50px;
+        border: 1px solid #dadce0;
+      color: #333;
+      letter-spacing: 0;
+      line-height: 1.5;
+      /* --- การแสดงผล --- */
+      overflow: visible;
+      z-index: 8;
+      }
+    
+   button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: transparent;
+      color: e53935;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color:  transparent;
+      transform: scale(1.2);
+    }
+
+  /* เอฟเฟกต์หมุนเฉพาะปุ่ม 📅 */
+    .calendar-btn {
+      font-family: sunflower;
+      font-size: 36px; 
+      font-weight: 600;
+      letter-spacing: 0px;
+      text-align: center;
+      align-self: center; 
+      padding: 0px 0px;
+      margin: 3px;
+      cursor:pointer;
+       border: 1px solid #dadce0;
+      }
+
+    .calendar-btn:hover {
+      transform: scale(1.5); 
+      color: #92695b;
+      text-shadow: 1px 1px 2px pink;
+    }
   
 </style>
   
   </head>
 
 
-  
-  <body class="">    
-    
+ <body>    
     <div> 
      <!-- ===== ส่วนหัวและปุ่มเลือกวัน ===== -->
   <div id="header">
     <button class="calendar-btn" onclick="openModal()">๓</button>
-    <span class="Location">Chaing Mai ๒๖๗๐</span>
-    </div>
-      <div class="line ">๙๙๙๙๙๙๙</div>
+    <span class="h1">Chaing Mai ๒๖๗๐</span>
+      <div class="line">๙๙๙๙๙๙๙</div></div>
    
-            <h1 id="nw-ad" class="Location">๓ Chaing Mai ๒๖๗๐</h1>
-      <div class="line">๙๙๙๙๙๙๙</div>
-
-
-    
     <div id="timer">
         <div class="days">
           <div id="days" class="numbers"></div>
