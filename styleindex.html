@@ -25,63 +25,25 @@ body {
         align-items: center;
         justify-content: center;
         display: flex;
-              border: 1px solid #dadce0;
-          text-align: center;
-      }
-      #timer {
-        display: flex;
-        flex-direction: row;
-        text-transform: uppercase;
-        font-size: .9em;
-        letter-spacing: 5px;
-        align-items: center;
-        justify-content: center;
+        border: 1px solid #dadce0;
         text-align: center;
-        font-family: 'fontmaewmedium';
-              border: 1px solid #dadce0;
+  
       }
 
-    #compact{
-      text-transform: none;
-      font-size: .7em;
-            border: 1px solid #dadce0;
-    }
-
-      .days,
-      .hours,
-      .minutes,
-      .seconds {
-        padding: 20px 10px;
-      }
-
-      #days {
-        color: #067029;
-      }
-
-      #hours {
-        color: #063970;
-      }
-
-      #minutes,#seconds {
-        color: #B99470;
-      }
-
-      .numbers {
-        font-family: 'KanchaRT02';
-        font-weight: bold;
-        font-size: 3em;
-        text-align: center;
-              border: 1px solid #dadce0;
-      }
-
-      /* ส่วนหัว + ปุ่มอยู่บรรทัดเดียวกัน */
+      /* Setting btn&สHeading */
     #header {
       display: flex;
       align-items: center;
+      flex-direction: row;
+      justify-content: center;
       gap: 10px;
       margin-bottom: 1rem;
       border: 1px solid #dadce0;
-   }
+
+
+
+      }
+
 
     button {
       padding: 10px 20px;
@@ -161,6 +123,55 @@ body {
       z-index: 8;
       }
   
+
+      #timer {
+        display: flex;
+        flex-direction: row;
+        text-transform: uppercase;
+        font-size: .9em;
+        letter-spacing: 5px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'fontmaewmedium';
+        border: 1px solid #dadce0;
+      }
+
+    #compact{
+      text-transform: none;
+      font-size: .7em;
+            border: 1px solid #dadce0;
+    }
+
+      .days,
+      .hours,
+      .minutes,
+      .seconds {
+        padding: 20px 10px;
+      }
+
+      #days {
+        color: #067029;
+      }
+
+      #hours {
+        color: #063970;
+      }
+
+      #minutes,#seconds {
+        color: #B99470;
+      }
+
+      .numbers {
+        font-family: 'KanchaRT02';
+        font-weight: bold;
+        font-size: 3em;
+        text-align: center;
+              border: 1px solid #dadce0;
+      }
+
+
+  
 </style>
   
   </head>
@@ -168,11 +179,13 @@ body {
 
  <body>    
     <div> 
-     <!-- ===== ส่วนหัวและปุ่มเลือกวัน ===== -->
-  <div id="header">
-    <button class="Setting-btn" onclick="openModal()">๓</button>
-    <span class="Heading">Chaing Mai ๒๖๗๐</span></div>
-      <div class="line">๙๙๙๙๙๙๙</div>
+   <body>    
+    <div> 
+  <!-- === Setting btn&สHeading === -->
+    <div id="header">
+      <button class="Setting-btn" onclick="openModal()">๓</button>
+      <span class="Heading">Chaing Mai ๒๖๗๐</span></div>
+    <div class="line">๙๙๙๙๙๙๙</div>
 
        
     <div id="timer">
