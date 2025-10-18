@@ -342,8 +342,83 @@
           <div id="seconds" class="numbers"></div>
           seconds
         </div>
+
+       <!-- ===== ส่วนหัวและปุ่มเลือกวัน ===== -->
+  <div id="header">
+    <button class="calendar-btn" onclick="openPopup()">๓</button>
+    <span class="h1">Chaing Mai ๒๖๗๐</span>
+    </div>
+      <div class="line ">๙๙๙๙๙๙๙</div>
+
+    <!--<div id="timer">
+        <div class="days">
+          <div id="days" class="numbers"></div>days</div>
+        <div class="hours">
+          <div id="hours" class="numbers"></div>hours </div>
+        <div class="minutes">
+          <div id="minutes" class="numbers"></div> minutes</div>
+        <div class="seconds">
+          <div class="time" id="days"></div>seconds</div>
+</div>-->
+      
+
+    <div id="timer">
+      
+    <div class="time-box">
+      <div class="numbers" id="days">00</div>      
+      <div class="days">days</div>
+    </div>
+      
+         <div class="time-box">
+      <div class="numbers" id="hours">00</div>
+      <div class="hours">hours</div>
+    </div>
+    <div class="time-box">
+      <div class="numbers" id="minutes">00</div>
+      <div class="minutes">minutes</div>
+    </div>
+      
+    <div class="time-box">
+      <div class="numbers" id="seconds">00</div>
+      <div class="seconds">seconds</div>
+    </div>
+</div>
+
+
+    <div id="timer">
+        <div class="days">
+          <div id="days" class="numbers"></div>days</div>
+        <div class="hours">
+          <div id="hours" class="numbers"></div>hours </div>
+        <div class="minutes">
+          <div id="minutes" class="numbers"></div> minutes</div>
+        <div class="seconds">
+          <div class="time" id="days"></div>seconds</div>
+</div>
+
+
+<!-- ===== Countdown ===== -->
+
+  <div id="result" class="countdown-container">
+    <div class="time-box">
+      <div class="time" id="days">00</div>      
+      <div class="label">days</div>
+    </div>
+    <div class="time-box">
+      <div class="time" id="hours">00</div>
+      <div class="label">hours</div>
+    </div>
+    <div class="time-box">
+      <div class="time" id="minutes">00</div>
+      <div class="label">minutes</div>
+    </div>
+    <div class="time-box">
+      <div class="time" id="seconds">00</div>
+      <div class="label">seconds</div>
+    </div>
+  </div>
   
-  <!-- Modal Popup -->
+  <!-- ===== Modal Popup ===== -->
   <div id="dateModal" class="modal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">✖</button>
@@ -354,13 +429,13 @@
       <div id="errorMsg" class="error"></div>
     </div>
   </div>
-
      
-
+  <!-- ===== กล่องแสดงผล Countdown =====
   <div class="result-box" id="result">
     00 : 00 : 00 : 00
     <div class="label">เวลาที่เหลือ</div>
-  </div>
+  </div> -->
+
 
 
  <!-- เสียงแจ้งเตือน -->
@@ -378,8 +453,6 @@
   <audio id="errorSound">
     <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
   </audio>
-
-
 
 
         <script>
