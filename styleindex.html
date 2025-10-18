@@ -98,35 +98,81 @@
         height: 50px;
       } 
    
-
-body {
-      font-family: "Karla", sans-serif;
-      background: linear-gradient(135deg, #d7f0f3, #fffaf3);
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  body {
+        font-family: "fontmaewmedium";
+        background: transparent;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #37352F;  <!--Font-->
+      }
 
     /* ส่วนหัว + ปุ่มอยู่บรรทัดเดียวกัน */
-    .header {
+    #header {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 1rem;
+      display: flex;
+      /*flex: initial;*/
+      flex-direction: row;
+      /*display: block;*/
+      text-align: center;
+     /* height: 54px;*/
     }
-
-    h1 {
-      color: #333;
-      font-size: 1.6rem;
+            .h1 {
+      /* --- โครงสร้างพื้นฐาน --- */
       margin: 0;
-    }
-
+      padding: 0;
+      border-radius: 0;
+      /* --- การจัดตำแหน่งใน flexbox --- */
+      align-self: center;
+      order: 0;
+      flex-grow: 0;
+      flex-shrink: 0;
+      /* --- ตัวอักษร --- */
+      font-family: 'sunflower';
+      font-size: 36px;
+      font-weight: 500;
+      color: #333;
+      letter-spacing: 0;
+      line-height: 1.5;
+      text-align: center;
+      white-space: pre-wrap;
+      word-break: break-word;
+      /* --- การแสดงผล --- */
+      overflow: visible;
+      z-index: 8;
+      }
+      .line {
+        font-family: 'sunflower';
+        font-size: 3em;
+        text-align: center;
+        height: 10px;
+              /* --- โครงสร้างพื้นฐาน --- */
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      /* --- การจัดตำแหน่งใน flexbox --- */
+      align-self: center;
+      order: 0;
+      flex-grow: 0;
+      flex-shrink: 0;
+      /* --- การแสดงผล --- */
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      }
+    
     button {
       padding: 10px 20px;
-      font-size: 36px;
+      font-size: 16px;
       border: none;
       background-color: transparent;
       color: e53935;
@@ -136,10 +182,11 @@ body {
     }
 
     button:hover {
-      background-color: transparent;
+      background-color:  transparent;
+      transform: scale(1.2);
     }
   /* เอฟเฟกต์หมุนเฉพาะปุ่ม 📅 */
-.calendar-btn {
+    .calendar-btn {
       font-family: sunflower;
       font-size: 36px; 
       font-weight: 600;
@@ -152,7 +199,9 @@ body {
       }
 
     .calendar-btn:hover {
-      transform: scale(1.5);
+      transform: scale(1.5); 
+      color: #92695b;
+      text-shadow: 1px 1px 2px pink;
     }
 
 
@@ -411,28 +460,6 @@ window.addEventListener("click", (e) => {
       });
     });
              </script>
-      <script>
-document.body.addEventListener('click', function enableAudio() {
-  // ปลดล็อกระบบเสียงทุกอัน
-  document.getElementById("hoverSound").play().then(() => {
-    document.getElementById("hoverSound").pause();
-    document.getElementById("hoverSound").currentTime = 0;
-  }).catch(()=>{});
-
-  document.getElementById("alarmSound").play().then(() => {
-    document.getElementById("alarmSound").pause();
-    document.getElementById("alarmSound").currentTime = 0;
-  }).catch(()=>{});
-
-  document.getElementById("errorSound").play().then(() => {
-    document.getElementById("errorSound").pause();
-    document.getElementById("errorSound").currentTime = 0;
-  }).catch(()=>{});
-
-  // เล่นครั้งเดียวพอ ลบ event ทิ้ง
-  document.body.removeEventListener('click', enableAudio);
-});
-</script>
 
 </body>
 </html>
